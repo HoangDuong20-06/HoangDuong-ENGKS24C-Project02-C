@@ -1,5 +1,5 @@
 #include<stdbool.h>
-struct addSmallCategory{
-	int id;
-	char nameCategory[100];
+struct Category{
+	char id[100];
+	char name[100];
 };

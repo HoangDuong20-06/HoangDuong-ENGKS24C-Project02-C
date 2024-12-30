@@ -1,4 +1,4 @@
-#include "funtion.h"
+#include"funtion.h"
 #include<stdio.h>
 #include<string.h>
 void menuStore(){
@@ -10,92 +10,53 @@ void menuStore(){
 }
 void menuCategory(){
 	printf("        *****STORE MANAGEMENT*****\n");
-	printf("===============CATEGORY MENU==============\n");
-	printf("1. Food and drinks\n");
-	printf("2. Consumer goods and household items\n");
-	printf("3. Fashion and accessories\n");
-	printf("4. Electronic equipment and technology\n");
-	printf("5. Children's toys\n");
-	printf("6. Pet supplies\n");
-	printf("7. Exit\n");
+	printf("==========CATEGORY MANAGEMENT=========\n");
+	printf("1. Show Category\n");
+	printf("2. Add Category\n");
+	printf("3. Fix Category\n");
+	printf("4. Delete Category\n");
+	printf("5. Arrange Category\n");
+	printf("6. Find Category\n");
+	printf("7. Check the data for the category\n");
+	printf("8. Data Storage\n");
+	printf("9. Exit\n");
 	printf("==========================================\n");
 }
-void addSmallCategory(int *length,struct addSmallCategory foodAndDrinks[]){
+void inputCategory(int *length,struct Category user[]){
 	int i;
 	printf("Enter the number of categories:");
 	scanf("%d", length);
+	getchar();
 	for(i=0;i<*length;i++){
-		printf("Enter ID product:");
-		scanf("%d",&foodAndDrinks[i].id);
-		getchar();
-		printf("Enter category product: ");
-		fgets(foodAndDrinks[i].nameCategory,100,stdin);
-		foodAndDrinks[i].nameCategory[strlen(foodAndDrinks[i].nameCategory-1)]='\0';
+		printf("Enter ID:");
+		fgets(user[i].id,100,stdin);
+		user[i].id[strcspn(user[i].id,"\n")]='\0';
+		printf("Enter Category Name:");
+		fgets(user[i].name,100,stdin);
+		user[i].name[strcspn(user[i].name,"\n")]='\0';
 	}
 }
-void addSmallCategory2(int *length,struct addSmallCategory consumerGoodsAndHouseholdItems[]){
+void printCategory(int *length,struct Category user[]){
 	int i;
-	printf("Enter the number of categories:");
-	scanf("%d", length);
+	printf(" ==============================\n");
+	printf("| %-10s | %-10s |\n", "ID", "NAME CATEGORY");
+	printf(" ==============================\n");
 	for(i=0;i<*length;i++){
-		printf("Enter ID product:");
-		scanf("%d",&consumerGoodsAndHouseholdItems[i].id);
-		getchar();
-		printf("Enter category product: ");
-		fgets(consumerGoodsAndHouseholdItems[i].nameCategory,100,stdin);
-		consumerGoodsAndHouseholdItems[i].nameCategory[strlen(consumerGoodsAndHouseholdItems[i].nameCategory-1)]='\0';
+		printf("| %-10s | %-10s |\n",user[i].id,user[i].name);
 	}
+	printf(" ==============================\n");
 }
-void addSmallCategory3(int *length,struct addSmallCategory fashionAndAccessories[]){
-	int i;
+void addCategory(int *length,struct Category user[]){
+	int i=1;
 	printf("Enter the number of categories:");
 	scanf("%d", length);
-	for(i=0;i<*length;i++){
-		printf("Enter ID product:");
-		scanf("%d",&fashionAndAccessories[i].id);
-		getchar();
-		printf("Enter category product: ");
-		fgets(fashionAndAccessories[i].nameCategory,100,stdin);
-		fashionAndAccessories[i].nameCategory[strlen(fashionAndAccessories[i].nameCategory-1)]='\0';
-	}
-}
-void addSmallCategory4(int *length,struct addSmallCategory electronicEquipmentAndTechnology[]){
-	int i;
-	printf("Enter the number of categories:");
-	scanf("%d", length);
-	for(i=0;i<*length;i++){
-		printf("Enter ID product:");
-		scanf("%d",&electronicEquipmentAndTechnology[i].id);
-		getchar();
-		printf("Enter category product: ");
-		fgets(electronicEquipmentAndTechnology[i].nameCategory,100,stdin);
-		electronicEquipmentAndTechnology[i].nameCategory[strlen(electronicEquipmentAndTechnology[i].nameCategory-1)]='\0';
-	}
-}
-void addSmallCategory5(int *length,struct addSmallCategory childrenToys[]){
-	int i;
-	printf("Enter the number of categories:");
-	scanf("%d", length);
-	for(i=0;i<*length;i++){
-		printf("Enter ID product:");
-		scanf("%d",&childrenToys[i].id);
-		getchar();
-		printf("Enter category product: ");
-		fgets(childrenToys[i].nameCategory,100,stdin);
-		childrenToys[i].nameCategory[strlen(childrenToys[i].nameCategory-1)]='\0';
-	}
-}
-void addSmallCategory6(int *length,struct addSmallCategory petSupplies[]){
-	int i;
-	printf("Enter the number of categories:");
-	scanf("%d", length);
-	for(i=0;i<*length;i++){
-		printf("Enter ID product:");
-		scanf("%d",&petSupplies[i].id);
-		getchar();
-		printf("Enter category product: ");
-		fgets(petSupplies[i].nameCategory,100,stdin);
-		petSupplies[i].nameCategory[strlen(petSupplies[i].nameCategory-1)]='\0';
-	}
+	getchar();
+	printf("Enter ID:");
+	fgets(user[i].id,100,stdin);
+	user[i].id[strcspn(user[i].id,"\n")]='\0';
+	printf("Enter Category Name:");
+	fgets(user[i].name,100,stdin);
+	user[i].name[strcspn(user[i].name,"\n")]='\0';
+	(*length)++;
 }
 
